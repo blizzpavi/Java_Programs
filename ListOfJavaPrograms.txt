@@ -1,0 +1,727 @@
+1. package corejava.classesAndobjects;
+
+   public class Area {
+	
+	int length = 30;
+	int width = 40;
+	
+	public void calculateArea() {
+		System.out.println("Area = "+(length*width));
+	}
+ }
+
+
+
+2. package corejava.classesAndobjects;
+
+public class SamsungMobile {
+	
+	int ramInGB=8;
+	String model= "Samsung 118M";
+	float displayInSize=6.5f;
+	String callToMobile="9034567891";
+	String messageTo="9087654345";
+	String textMessage="Hi, Good morning!!";
+	
+	public void callTo() {
+		System.out.println("Dialing ... "+callToMobile);
+	}
+	
+	public void sendSMS() {
+		System.out.println("Message sent ... "+textMessage);
+	}
+
+}
+
+
+
+3. package corejava.classesAndobjects;
+
+public class TestObjects {
+
+	public static void main(String[] args) {
+		
+		//Classname   reference = new Classname();
+		SamsungMobile mobile= new SamsungMobile();
+		mobile.callTo();
+		mobile.sendSMS();
+		
+		Area areaRef = new Area();
+		areaRef.calculateArea();
+	}
+
+}
+
+
+4. package corejava.classesAndobjects;
+
+public class SamsungMobile {
+	
+	String toMobile;
+	String fromMobile;
+	String messageTo;
+	String textMessage;
+	
+	public void reciveCall() {
+		System.out.println("Recieving call from ... "+fromMobile);
+	}
+	public void DialTo(String toMobile) {
+		System.out.println("Dialing ... "+toMobile);
+	}
+	
+	public void sendSMS(String toMobile, String fromMobile, String textMessage) {
+		System.out.println("From Mobile : "+fromMobile);
+		System.out.println("Message : "+textMessage);
+	}
+
+}
+
+5. package corejava.classesAndobjects;
+
+public class TestObjects {
+
+	public static void main(String[] args) {
+		
+		//Classname   reference = new Classname();
+		SamsungMobile mobile= new SamsungMobile();
+		//mobile.fromMobile="6667778889";
+		//mobile.messageTo="9999555567";
+		//mobile.textMessage="Hi Good Morning, call me once";
+		mobile.sendSMS("6667778889","9999555567","Hi Good Morning, call me once");
+		
+		
+		mobile.DialTo("567897777");
+		
+	}
+
+}
+
+6. package corejava.classesAndobjects;
+
+public class Shape {
+	
+	int dimemsion1;
+	int demension2;
+	int dimension3;
+	String shape;
+	int area;
+	
+	// If method name is same and have different parameters then that 
+	// methods are called as overloading
+	
+	public void area(int dimension1,String shape) {
+		System.out.println("Area of "+shape+" = "+(dimension1*dimension1));
+		
+	}
+	
+	public int area(int dimension1) {
+		return area=dimension1*dimension1;
+		
+	}
+	
+	public void area(int dimension1, float piValue,String shape) {
+		System.out.println("Area of "+shape+" = "+(piValue*dimension1*dimension1));
+		
+	}
+	
+	public void area(int dimension1, int demenstion2,String shape) {
+		System.out.println("Area of "+shape+" = "+(dimension1*dimension1));
+	}
+	
+	public void area(int dimension1, int demenstion2,String shape,float value) {
+		System.out.println("Area of "+shape+" = "+(value*dimension1*dimension1));
+	}
+	
+	public void area(int dimension1, int demension2, int dimension3,String shape) {
+		System.out.println("Area of "+shape+" = "+
+	(2*(dimension1*demension2)+(demension2*dimension3)+(dimension3*dimension1)));
+	}
+	
+	
+	
+
+}
+
+7. package corejava.classesAndobjects;
+
+public class TestObjects {
+	
+	public  void calculatePlotCost(int area, float costPerSqYd) {
+		System.out.println("Cost = "+(area*costPerSqYd));
+	}
+
+	public static void main(String[] args) {
+		
+		TestObjects testObject = new TestObjects();
+		
+		Shape square = new Shape();
+		square.area(55,"Square");
+		
+		Shape rectangle = new Shape();
+		rectangle.area(50, 40, "Rectangle");
+		
+		Shape cuboid = new Shape();
+		cuboid.area(30, 30, 30, "Cuboid");
+		
+		Shape circle = new Shape();
+		circle.area(50, 3.14f, "Circle");
+		
+		Shape triangle = new Shape();
+		triangle.area(25, 30, "Triangle",0.5f);
+		
+		Shape rhombus = new Shape();
+		rhombus.area(25, 25, "Rhombus",0.5f);
+		
+		Shape square1 = new Shape();
+		int area = square1.area(35);
+		
+		
+		testObject.calculatePlotCost(area,25);
+		
+		
+	}
+
+}
+
+8. package corejava.classesAndobjects;
+
+public class EvenOrOddNumber {
+	
+	//Step-1
+	int number=101;
+	
+	
+	//Step-2
+	public void findOddOrEven() {
+		
+		if(number%2==0) {
+			//Step-3
+			System.out.println(number+ " is even.");
+		}else {
+			//Step-3
+			System.out.println(number+ " is odd.");
+		}
+		
+	}
+	
+	public static void main(String[] args) {
+		//Step-4
+		EvenOrOddNumber oddOrevenRef = new EvenOrOddNumber();
+		
+		//Step-5
+		oddOrevenRef.findOddOrEven();
+	}
+
+}
+
+9. package corejava.inheritance;
+
+public class Rectangle extends Shape{
+	
+	public void perimeterOfCircle() {
+		System.out.println("Perimeter of Circle = "+(2*pi*dim1));
+	}
+	
+	public static void main(String args[]) {
+		
+		//Shape rectRef = new Shape();
+		//rectRef.area(30, "Square");
+		
+		
+		Rectangle rect = new Rectangle();
+		rect.area(55, "Square");
+		
+		float area =rect.areaOfCircle(33, "Circle");
+		
+		rect.perimeterOfCircle();
+		
+		
+	}
+
+}
+
+10. package corejava.inheritance;
+
+public class Shape {
+	
+	public int dim1;
+	public int dim2; 
+	public int dim3; 
+	public int dim4; 
+	public int dim5;
+	
+	public float pi=3.14f;
+	
+	public void area(int dim1, String shape) {
+		this.dim1=dim1;
+		System.out.println("Area of "+shape+" = "+(dim1*dim1));
+	}
+	
+	public void area(int dim1,int dim2, String shape) {
+		this.dim1=dim1;
+		this.dim2=dim2;
+		System.out.println("Area of "+shape+" = "+(this.dim1*this.dim2));
+	}
+	
+	public float areaOfCircle(int dim1, String shape) {
+		this.dim1=dim1;
+		System.out.println("Area of "+shape+" = "+(pi*this.dim1*this.dim1));
+		return pi*dim1*dim1;
+	}
+	
+
+}
+
+11. package corejava.inheritance;
+
+public class Rectangle extends Shape{
+	
+	public void perimeterOfCircle() {
+		System.out.println("Perimeter of Circle = "+(2*pi*dim1));
+	}
+	
+	public static void main(String args[]) {
+		
+		//Shape rectRef = new Shape();
+		//rectRef.area(30, "Square");
+		
+		
+		Rectangle rect = new Rectangle();
+		rect.area(55,66, "Rectangle");
+		
+		float area =rect.areaOfCircle(33, "Circle");
+		
+		rect.perimeterOfCircle();
+		
+		
+	}
+
+}
+
+12. package corejava.inheritance;
+
+public class Square extends Shape{
+	
+	public static void main(String args[]) {
+		Square sq = new Square();
+		sq.area(77, "Square");
+	}
+}
+
+13. package corejava.inheritance;
+
+public class Rhombus extends Shape {
+	
+	//Method overriding.....
+	public void area(int dim1, int dim2, String shape) {
+		this.dim1=dim1;
+		this.dim2=dim2;
+		System.out.println("Area of "+shape+" = "+((this.dim1*this.dim2)/2));
+	}
+	
+	public static void main(String args[]) {
+		Rhombus rb = new Rhombus();
+		rb.area(33,44,"Rhombus");
+	}
+
+}
+
+14. package corejava.inheritance;
+
+public class A {
+	int x=10;
+	int y=20;
+}
+
+15. package corejava.inheritance;
+
+public class B extends A {
+	
+	int x=-20;
+	int y=20;
+	
+	public void mulXY() {
+		System.out.println("Multiplication of x and y = "+(super.x*super.y));
+		System.out.println("Multiplication of x and y = "+(x*y));
+	}
+
+	public static void main(String[] args) {
+		B b = new B();
+		b.mulXY();
+	}
+
+}
+
+16. package corejava.inheritance;
+
+public class B extends A {
+	
+	int x=-20;
+	int y=20;
+	
+	public void mulXY() {
+		System.out.println("Multiplication of x and y = "+(super.x*super.y));
+		System.out.println("Multiplication of x and y = "+(x*y));
+		System.out.println("Multiplication of x and y = "+(this.x*this.y));
+	}
+
+	public static void main(String[] args) {
+		B b = new B();
+		b.mulXY();
+	}
+
+}
+
+
+
+            postgresql jdbc:
+
+
+17. package corejava.jdbc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class DBResultSetExample {
+
+	public static void main(String[] args) {
+		
+		try {
+
+		//Step-1 Connect database through connection 
+		Connection conObj = DriverManager.getConnection("jdbc:mysql://localhost:3306","root","root");
+		System.out.println("Connection Object : "+conObj);		
+		
+		//Step-2 Create Statement Object
+		Statement stmtObj = conObj.createStatement();
+		
+		//Step-3 Create Statement Query
+		ResultSet rsObj = stmtObj.executeQuery("SELECT * FROM trainings.course");
+		
+		
+		//Step-4 Create ResultSet Object to retrieve results if required.
+		while(rsObj.next()) {
+			System.out.println(rsObj.getString("COURSE_ID")+" "+rsObj.getString("NAME")+" "+rsObj.getString("DURATION"));
+		}
+		
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
+
+}
+
+
+18. package corejava.jdbc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class DBInsertRecordEx {
+
+	public static void main(String[] args) {
+		// Step-1 Connect database through connection
+		Connection conObj;
+		try {
+			
+			//Step-1 Connect database through connection 
+			conObj = DriverManager.getConnection("jdbc:mysql://localhost:3306", "root", "root");
+
+			System.out.println("Connection Object : " + conObj);
+
+			// Step-2 Create Statement Object
+			Statement stmtObj = conObj.createStatement();
+
+			// Step-3 Create Statement Query
+			boolean inserted = stmtObj.execute("INSERT INTO TRAININGS.COURSE (COURSE_ID,NAME,DURATION) VALUES (129,'Data Analytics',60)");
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}
+
+19. package corejava.jdbc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class DBUpdateQuery {
+
+	public static void main(String[] args) {
+
+		// Step-1 Connect database through connection
+		Connection conObj;
+		try {
+
+			// Step-1 Connect database through connection
+			conObj = DriverManager.getConnection("jdbc:mysql://localhost:3306", "root", "root");
+
+			System.out.println("Connection Object : " + conObj);
+
+			// Step-2 Create Statement Object
+			Statement stmtObj = conObj.createStatement();
+
+			// Step-3 Create Statement Query
+			int updated = stmtObj
+					.executeUpdate("UPDATE TRAININGS.COURSE SET DURATION=100 WHERE COURSE_ID=128");
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}
+
+20. package ex.postgre;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class JDBCExample {
+	
+	 private final String url = "jdbc:postgresql://localhost/Employee";
+	 private final String user = "postgres";
+	 private final String password = "root";
+
+	    /**
+	     * Connect to the PostgreSQL database
+	     * @return a Connection object
+	     */
+	    public Connection connect() {
+	        Connection conn = null;
+	        Employee e = null;
+	        ArrayList<Employee> employeeList = new ArrayList<Employee>(100);
+	       try {
+	        	//Step-1 Using connection interface get the Database connection.
+	        	// DriverManager is a class which internally & indirectly implemented Connection Intreface
+	            conn = DriverManager.getConnection(url, user, password);
+	            System.out.println("Connected to the PostgreSQL server successfully.");
+	            
+	            //Step-2 Using Connection Interface create a statement object and using statment Object pass the query to database
+	            Statement stmt = conn.createStatement();
+	            
+	            //Step-3 Using Statement object it will return result set
+                ResultSet rs = stmt.executeQuery("SELECT * FROM employee");
+                
+                //Step-4 Iterate Result set
+                while(rs.next()) {
+                	//System.out.print(rs.getInt(1)+ "\t\t"+ rs.getString(2)+ "\t\t\t"+rs.getString(3));
+                	e = new Employee(rs.getInt(1),rs.getString("name"),rs.getString("address"));
+                	employeeList.add(e);
+                }
+                
+               
+                   // How to retrieve items from the list?
+                   // Using iterator
+                
+                  /*for(Employee ie : employeeList) {
+                	  System.out.println("Iterator ie Address= "+ie.getAddress());
+                	  System.out.println("Iterator ie Employee Name = "+ie.getEmployeeName());
+                	  System.out.println("Iterator ie Employee Id = "+ie.getId());
+                	  System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+                  }*/
+                
+                // Old way of Iteration
+                
+                Iterator<Employee> iterator = employeeList.iterator();
+                
+                while(iterator.hasNext()) {
+                	System.out.println("*********");
+                	Employee empTempObj = iterator.next();
+                	System.out.println(empTempObj.getAddress());
+                	System.out.println(empTempObj.getEmployeeName());
+                }
+       
+                
+	        } catch (SQLException ex) {
+	          //  System.out.println(ex.getMessage());
+	        }
+
+	        return conn;
+	    }
+	
+	    
+	    public static void main(String ar[]) {
+	    	JDBCExample obj = new JDBCExample();
+	    	obj.connect();
+	    }
+
+}
+
+21. package y4j.batch2.streams;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class StreamDemo {
+
+	public static void main(String[] args) {
+		// 1 ################################################
+		Stream<Integer> str = Stream.of(1, 2, 3, 4, 5);
+		str.forEach(x-> System.out.println(x));
+
+		// 2 ################################################
+		List<Integer> list = new ArrayList<Integer>();
+
+		for (int i = 1; i < 10; i++) {
+			list.add(i);
+		}
+
+		Stream<Integer> stream = list.stream();
+		// stream.forEach(item-> System.out.println(item));
+
+		// 3 ################################################
+		Stream<Integer> randomNumbers = Stream.generate(() -> (new Random()).nextInt(10));
+
+		// randomNumbers.limit(20).forEach(System.out::println);
+
+		// 4 ################################################
+		Stream<String> strm1 = Stream.of("A^B^C".split("\\^")); /* Use \\ for special characters ^%! */
+		//strm1.forEach(p -> System.out.println(p));
+
+		Stream<String> strm2 = Stream.of("Apple,Banana,Mango".split(","));
+		strm2.forEach(fruit -> System.out.println(fruit));
+
+		// 5 ################################################
+
+		List<Integer> listCollect = new ArrayList<Integer>();
+
+		for (int i = 1; i < 10; i++) {
+			listCollect.add(i);
+		}
+
+		Stream<Integer> streamCollect = list.stream();
+		Stream<Integer> streamCollectOdd=list.stream();
+		List<Integer> evenNumbersList = streamCollect.filter(i -> i % 2 == 0).collect(Collectors.toList());
+		System.out.print(evenNumbersList);
+		
+		List<Integer> oddNumbersList = streamCollectOdd.filter(x-> x % 2==1).collect(Collectors.toList());
+		//System.out.println(oddNumbersList);
+		
+		//6 ################################################(ALT+SHIFT+R) to rename varible names
+		
+		List<String> actorsList = new ArrayList<>();
+		actorsList.add("ZVarun");
+		actorsList.add("AAmitabh");
+		actorsList.add("TSharukh");
+		actorsList.add("WSalman");
+		actorsList.add("BAbhishek");
+		actorsList.add("RAkshay");
+		actorsList.add("ESaif");
+		actorsList.add("AAjay");
+		
+		
+		List<String> actorsListWithS =actorsList.stream().filter(ac-> ac.startsWith("S")).collect(Collectors.toList());
+		System.out.println(actorsListWithS);
+		
+
+		List<String> actorNamesInUppercase = actorsList.stream().sorted()
+                            .map(String::toLowerCase)
+                            .collect(Collectors.toList());
+		System.out.println(actorNamesInUppercase);
+		
+		long count = actorsList.stream().filter((s)-> s.startsWith("A")).count();
+		
+		System.out.println(count);
+		
+		String string = actorsList.stream()
+         .filter((s) -> s.startsWith("A"))
+         .findFirst().get();
+		
+		System.out.println("findFirst -- "+string);
+
+
+	
+
+	}
+
+}
+
+                      TODAY
+
+1. package com.y4j.demo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.y4j.model.Student;
+
+@SpringBootApplication
+public class SpringCoreApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SpringCoreApplication.class, args);
+		
+		ApplicationContext context = new ClassPathXmlApplicationContext("SpringConfig.xml");
+		Student st = context.getBean("Student",Student.class);
+		st.setName("Anil");
+		System.out.println("Name = "+st.getName());
+	}
+
+}
+
+2. package com.y4j.model;
+
+public class Student {
+	
+	private String name;
+	private int rollNumber;
+	
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getRollNumber() {
+		return rollNumber;
+	}
+	public void setRollNumber(int rollNumber) {
+		this.rollNumber = rollNumber;
+	}
+	
+	
+
+}
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans 
+  http://www.springframework.org/schema/beans/spring-beans.xsd 
+  http://www.springframework.org/schema/context/ 
+  http://www.springframework.org/schema/context/spring-context.xsd">
+  
+  
+  <bean name ="Student" class="com.y4j.model.Student" />
+  
+  
+  
+  </beans>
